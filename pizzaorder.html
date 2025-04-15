@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group Pizza Order</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    h1, h2 { color: #c0392b; }
+    .section { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 5px; }
+    .total { font-size: 1.2em; margin-top: 10px; }
+    button { padding: 10px 20px; font-size: 1em; background-color: #27ae60; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #219150; }
+    .links { margin-bottom: 20px; }
+    .links a { margin-right: 15px; font-weight: bold; color: #2980b9; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="links">
+    <a href="https://pirru.it/" target="_blank">🍽 Visit Pirru Pizzeria</a>
+    <a href="https://qrco.de/bell06" target="_blank">📄 View Full Menu (PDF)</a>
+  </div>
+
+  <h1>🍕 Create Your Pizza</h1>
+  <form id="pizzaForm">
+    <label>Your Name: <input type="text" name="userName" required></label>
+
+    <div class="section">
+      <h2>Base</h2>
+      <label><input type="radio" name="base" value="White (Stria) - 5.00" data-price="5"> White (Stria) – €5.00</label>
+      <label><input type="radio" name="base" value="Red with Tomato - 5.50" data-price="5.5"> Red with Pirru® Tomato – €5.50</label>
+      <label><input type="radio" name="base" value="Special Dough - 7.00" data-price="7"> Special Dough – €7.00</label>
+    </div>
+
+    <div class="section">
+      <h2>Cheese</h2>
+      <label><input type="checkbox" name="cheese" value="Brie" data-price="2.5"> Brie – €2.50</label>
+      <label><input type="checkbox" name="cheese" value="Burrata" data-price="2.5"> Burrata (Out of Oven) – €2.50</label>
+      <label><input type="checkbox" name="cheese" value="Buffalo Mozzarella" data-price="3"> Buffalo Mozzarella – €3.00</label>
+      <label><input type="checkbox" name="cheese" value="Gorgonzola" data-price="2.5"> Gorgonzola – €2.50</label>
+      <label><input type="checkbox" name="cheese" value="Fior di Latte" data-price="1.5"> Fior di Latte Mozzarella – €1.50</label>
+      <label><input type="checkbox" name="cheese" value="Parmesan" data-price="2"> Parmesan – €2.00</label>
+      <label><input type="checkbox" name="cheese" value="Pecorino" data-price="2"> Pecorino – €2.00</label>
+      <label><input type="checkbox" name="cheese" value="Provola" data-price="2.5"> Provola – €2.50</label>
+      <label><input type="checkbox" name="cheese" value="Stracchino" data-price="2.5"> Stracchino – €2.50</label>
+    </div>
+
+    <div class="section">
+      <h2>Meats</h2>
+      <label><input type="checkbox" name="meat" value="Bresaola" data-price="2.5"> Bresaola – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Mortadella" data-price="2.5"> Mortadella – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Pancetta" data-price="2"> Pancetta – €2.00</label>
+      <label><input type="checkbox" name="meat" value="Raw Ham" data-price="2.5"> Raw Ham – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Cooked Ham" data-price="2.5"> Cooked Ham – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Spicy Salami" data-price="2"> Spicy Salami – €2.00</label>
+      <label><input type="checkbox" name="meat" value="Feline Salami" data-price="2.5"> Feline Salami – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Sausage" data-price="2.5"> Sausage – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Speck" data-price="2.5"> Speck – €2.50</label>
+      <label><input type="checkbox" name="meat" value="Wurstel" data-price="2"> Wurstel – €2.00</label>
+    </div>
+
+    <div class="section">
+      <h2>Fish</h2>
+      <label><input type="checkbox" name="fish" value="Anchovies" data-price="2"> Anchovies – €2.00</label>
+      <label><input type="checkbox" name="fish" value="Cantabrian Anchovies" data-price="4"> Cantabrian Anchovies – €4.00</label>
+      <label><input type="checkbox" name="fish" value="Tuna" data-price="2"> Tuna – €2.00</label>
+    </div>
+
+    <div class="section">
+      <h2>Vegetables</h2>
+      <label><input type="checkbox" name="veg" value="Garlic" data-price="0.5"> Garlic – €0.50</label>
+      <label><input type="checkbox" name="veg" value="Asparagus" data-price="2"> Asparagus – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Artichokes" data-price="2"> Artichokes – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Capers" data-price="1.5"> Capers – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Onion" data-price="0.5"> Onion – €0.50</label>
+      <label><input type="checkbox" name="veg" value="Cream of Balsamic Vinegar" data-price="1.5"> Cream of Balsamic Vinegar – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Pistachio Cream" data-price="2"> Pistachio Cream – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Pumpkin Cream" data-price="2.5"> Pumpkin Cream – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Broccoli Rabe" data-price="2.5"> Broccoli Rabe – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Mixed Mushrooms" data-price="2.5"> Mixed Mushrooms – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Porcini Mushrooms" data-price="3"> Porcini Mushrooms – €3.00</label>
+      <label><input type="checkbox" name="veg" value="Truffled Mushrooms" data-price="1.5"> Truffled Mushrooms – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Pistachio Grits" data-price="2"> Pistachio Grits – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Aubergines" data-price="1.5"> Aubergines – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Walnuts" data-price="2"> Walnuts – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Black Olives" data-price="1.5"> Black Olives – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Taggiasche Olives" data-price="2"> Taggiasche Olives – €2.00</label>
+      <label><input type="checkbox" name="veg" value="French Fries" data-price="1.5"> French Fries – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Baked Potatoes" data-price="1.5"> Baked Potatoes – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Peppers" data-price="2"> Peppers – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Erbazzone Pesto" data-price="2.5"> Erbazzone Pesto – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Cherry Tomatoes" data-price="2"> Cherry Tomatoes – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Datterini Tomatoes" data-price="2"> Datterini Tomatoes – €2.00</label>
+      <label><input type="checkbox" name="veg" value="Yellow Cherry Tomatoes" data-price="2.5"> Yellow Cherry Tomatoes – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Sun-Dried Tomatoes" data-price="2.5"> Sun-Dried Tomatoes – €2.50</label>
+      <label><input type="checkbox" name="veg" value="Radicchio" data-price="1.5"> Radicchio – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Rocket" data-price="1"> Rocket – €1.00</label>
+      <label><input type="checkbox" name="veg" value="Spinach" data-price="1.5"> Spinach – €1.50</label>
+      <label><input type="checkbox" name="veg" value="Zucchini" data-price="1.5"> Zucchini – €1.50</label>
+    </div>
+
+    <div class="section">
+      <h2>Herbs & Fruit</h2>
+      <label><input type="checkbox" name="herbs" value="Basil" data-price="0.5"> Basil – €0.50</label>
+      <label><input type="checkbox" name="herbs" value="Mint" data-price="0.5"> Mint – €0.50</label>
+      <label><input type="checkbox" name="herbs" value="Oregano" data-price="0.5"> Oregano – €0.50</label>
+      <label><input type="checkbox" name="herbs" value="Rosemary" data-price="0.5"> Rosemary – €0.50</label>
+      <label><input type="checkbox" name="herbs" value="Pear" data-price="0.5"> Pear – €0.50</label>
+    </div>
+
+    <div class="total">
+      Total: €<span id="totalPrice">0.00</span>
+    </div>
+
+    <button type="submit">Submit My Pizza</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('pizzaForm');
+    const priceDisplay = document.getElementById('totalPrice');
+
+    form.addEventListener('change', () => {
+      let total = 0;
+      const inputs = form.querySelectorAll('input:checked');
+      inputs.forEach(input => {
+        total += parseFloat(input.dataset.price || 0);
+      });
+      priceDisplay.textContent = total.toFixed(2);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const userName = formData.get('userName');
+      const base = formData.get('base');
+      const cheese = formData.getAll('cheese').join(', ');
+      const meat = formData.getAll('meat').join(', ');
+      const fish = formData.getAll('fish').join(', ');
+      const veg = formData.getAll('veg').join(', ');
+      const herbs = formData.getAll('herbs').join(', ');
+      const total = priceDisplay.textContent;
+
+      const payload = {
+        userName,
+        base,
+        cheese,
+        meat,
+        fish,
+        veg,
+        herbs,
+        total
+      };
+
+      await fetch('https://script.google.com/macros/s/AKfycbySihHtUHjVPloUkUAF1ccla94ie4OP_ta2sjyqffjbJg2foNTWuS7piyV5hxS3ZWaK/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      alert("Grazie! Pizza order submitted!");
+      form.reset();
+      priceDisplay.textContent = "0.00";
+    });
+  </script>
+</body>
+</html>
